@@ -6,7 +6,10 @@ const util = require('util');
 const cors = require('cors');
 
 const app = express();
-const client = new textToSpeech.TextToSpeechClient();
+const client = new textToSpeech.TextToSpeechClient({
+  credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON)
+});
+
 
 app.use(cors());
 app.use(express.json());
